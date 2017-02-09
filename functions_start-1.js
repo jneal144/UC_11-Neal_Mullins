@@ -1,4 +1,4 @@
-<< << << < HEAD
+
 //THESE FUNCTIONS CONTAIN BUGS!!!!
 /**
  * Returns a array of odd numbers from an array
