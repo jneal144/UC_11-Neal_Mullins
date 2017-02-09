@@ -1,4 +1,3 @@
-<< << << < HEAD
 //THESE FUNCTIONS CONTAIN BUGS!!!!
 /**
  * Returns a array of odd numbers from an array
@@ -40,9 +39,9 @@ function listTriangularNumbers(n) {
 function multTable(row, col) {
     var table = "<table>";
     var x;
-    for (var i = 1; i < col; ++i) {
+    for (var i = 1; i <= row; ++i) {
         table = table + "<tr>";
-        for (var j = 1; j < row; ++j) {
+        for (var j = 1; j <= col; ++j) {
             x = i * j;
             table = table + "<td>" + x + "</td>";
         }
@@ -57,7 +56,7 @@ function multTable(row, col) {
  * @returns {number}
  */
 function factorial(n) {
-    var result = 0;
+    var result = 1;
     for (var i = n; i > 1; i--) {
         result = result * i;
     }
@@ -71,7 +70,10 @@ function factorial(n) {
  */
 function combinations(n, k) {
     var c;
-    c = factorial(n) / factorial(k) * (factorial(n - k));
+    if (n < k) {
+        return 0;
+    }
+    c = factorial(n) / (factorial(k) * factorial(n - k));
     return c;
 }
 /**
@@ -80,15 +82,15 @@ function combinations(n, k) {
  * @returns {Array} The sorted array
  */
 function sort(a) {
-    result = a;
-    for (var i = 0; i < result.length; ++i) {
+    var result = a;
+    for (var i = 0; i < result.length; i++) {
         var j = result[i];
         var k;
         for (k = i - 1;
             (k >= 0) && (j < result[k]); k--) {
-            result[k - 1] = result[k];
+            result[k + 1] = result[k];
         }
-        result[k - 1] = j;
+        result[k + 1] = j;
     }
     return result;
 }
